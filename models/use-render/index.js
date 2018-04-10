@@ -41,7 +41,6 @@ module.exports = function(req , res , next){
         data.resJson.apiImgUrl = useConfig.get('apiImgUrl');
         data.resJson.qrcodeApi = useConfig.get('qrcodeApi');
         data.resJson.hostname = useConfig.get('hostname');
-        data.resJson.usePageSize = usePageSize;
         data.__menuCode = req.__menuCode || '';
         data.__permissionCode = req.__permissionCode || '';
         data.sessionJson = req.session;

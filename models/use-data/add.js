@@ -32,31 +32,22 @@ module.exports = function(useData){
         this.addSubscribe(data);
     };
     useData.addUser = function(userInfo , call){
-        var sendData = {
-            openId :userInfo.openid,
-            nickname   :userInfo.nickname,
-            headImg    :userInfo.headimgurl,
-            deviceType:'wx',
-            gender :userInfo.gender  || userInfo.sex,
-            sType :'weixin',
-            uid:userInfo.unionid,
-        };
       var addData = {
+        source:userInfo.source || userInfo.deviceType || '',
         openid:userInfo.openid,
-        unionid:userInfo.unionid||userInfo.openid,
-        nickName:userInfo.nickname,
-        headImg:userInfo.headimgurl||userInfo.headimg,
-        sex:userInfo.gender||userInfo.sex,
-        city:userInfo.city,
-        province:userInfo.province,
-        country:userInfo.country,
-        privilege:userInfo.privilege,
+        unionid:userInfo.unionid || userInfo.openid,
+        nickName:userInfo.nickname || userInfo.nickName,
+        headImg:userInfo.headimgurl || userInfo.headimg || userInfo.avatarUrl,
+        sex:userInfo.gender || userInfo.sex,
+        city:userInfo.city || '',
+        province:userInfo.province || '',
+        country:userInfo.country || '',
+        privilege:userInfo.privilege || '',
         status:0,
-        subscribe:userInfo.subscribe || '',
-        subscribe_time:useCommon.parseDate(userInfo.CreateTime * 1000 || new Date)
+        subscribe:userInfo.subscribe || ''
       };
       if(userInfo.subscribeTime)addData.subscribe_time = useCommon.parseDate(userInfo.subscribeTime * 1000);
-      useMysql.add(useSql.common.add('user',addData) , call);
+      useMysql.add(useSql.common.add('user', addData) , call);
     }
 };
 

@@ -13,6 +13,7 @@ var mysql = {
             password :mysqlOptions.password,
             database : mysqlOptions.database,
             connectTimeout:10 * 1000,
+            charset:'UTF8MB4_GENERAL_CI'
         });
         this.connection.on('error', function(err){
             that.error(err);
