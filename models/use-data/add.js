@@ -33,12 +33,12 @@ module.exports = function(useData){
     };
     useData.addUser = function(userInfo , call){
       var addData = {
-        source:userInfo.source || userInfo.deviceType || '',
-        openid:userInfo.openid,
-        unionid:userInfo.unionid || userInfo.openid,
-        nickName:userInfo.nickname || userInfo.nickName,
-        headImg:userInfo.headimgurl || userInfo.headimg || userInfo.avatarUrl,
-        sex:userInfo.gender || userInfo.sex,
+        source: userInfo.source || userInfo.deviceType || '',
+        openid: userInfo.openid,
+        unionid: userInfo.unionid || userInfo.openid,
+        nickName: userInfo.nickname || userInfo.nickName,
+        headImg: userInfo.headimgurl || userInfo.headimg || userInfo.avatarUrl,
+        sex: userInfo.gender || userInfo.sex,
         city:userInfo.city || '',
         province:userInfo.province || '',
         country:userInfo.country || '',
